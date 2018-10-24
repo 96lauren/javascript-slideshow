@@ -7,9 +7,43 @@
 	<link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
 	<style type="text/css">
 		body{
-			background-color: #000;
+			/* background-color: #000; */
 		}
-		.slider-reel img {
+		.image {
+    margin: 20 auto;
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.hover_container:hover .image {
+  opacity: 0.3;
+}
+
+.hover_container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: rgb(209, 221, 209);
+  color: rgb(22, 8, 150);
+  font-size: 16px;
+  padding: 16px 32px;
+}
+		/* .slider-reel img {
 			display: block;
 			width: 300px;
 			margin: auto;
@@ -20,7 +54,7 @@
 			transition: opacity .3s;
 		}
 		.slider-reel img:hover + p.caption {
-  			opacity: 1;
+  			opacity: 1; */
 }
 	</style>
 
@@ -34,19 +68,44 @@
 					<img src="images/2.jpg" alt="bay">
 					<img src="images/3.jpg" alt="bay">
 					<img src="images/4.jpg" alt="bay">
-					<p class="caption">awsome image</p>
+					<img src="images/5.jpg" alt="bay">
+					
+					
 				</div>
+				<div class="content">
+                <img src="images/6.jpg" alt="Avatar" class="image" >
+                <div class="middle">
+                  <div class="text"> shooting stars are cute,, mother nature</div>
+                </div>
+              </div>
 			
 	  </div> 
    		
    </div>
 
 <script type="text/javascript" >
-	$('.owl-carousel').owlCarousel();
+	var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:2,
+    loop:true,
+    margin:10,
+    autoplay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true
+});
+$('.play').on('click',function(){
+    owl.trigger('play.owl.autoplay',[1000])
+})
+$('.stop').on('click',function(){
+    owl.trigger('stop.owl.autoplay')
+})		
 	// $('img').scroll(function(){
 
 	// });
 
-</script>   
+</script>
+
+<script src="jquery.min.js"></script>
+<script src="owlcarousel/owl.carousel.min.js"></script>
 </body>
 </html>
